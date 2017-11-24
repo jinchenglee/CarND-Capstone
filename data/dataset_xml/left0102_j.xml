@@ -1,0 +1,26 @@
+<annotation>
+	<folder>dataset_jpg</folder>
+	<filename>left0102_j.jpg</filename>
+	<path>dataset_jpg/left0102_j.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1368</width>
+		<height>1096</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>yellow</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>593</xmin>
+			<ymin>407</ymin>
+			<xmax>652</xmax>
+			<ymax>507</ymax>
+		</bndbox>
+	</object>
+</annotation>

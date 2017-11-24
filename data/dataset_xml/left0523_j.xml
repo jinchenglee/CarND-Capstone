@@ -1,0 +1,26 @@
+<annotation>
+	<folder>dataset_jpg</folder>
+	<filename>left0523_j.jpg</filename>
+	<path>dataset_jpg/left0523_j.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1368</width>
+		<height>1096</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>red</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>593</xmin>
+			<ymin>382</ymin>
+			<xmax>674</xmax>
+			<ymax>535</ymax>
+		</bndbox>
+	</object>
+</annotation>
