@@ -117,7 +117,7 @@ for f in xml_list:
         # ---------------------
         # JPG processing
         # ---------------------
-        img = cv2.imread('../data/dataset_jpg/'+filename[-1:-5]+'.jpg')
+        img = cv2.imread('../data/dataset_jpg/'+filename[0:-5]+'.jpg')
         img_flip = cv2.flip(img, 1) # 1 - horizontal flip
         cv2.imwrite('../data/dataset_jpg_flip/'+filename+'.jpg', img_flip)
 
