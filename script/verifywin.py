@@ -57,10 +57,11 @@ class Verify(object):
 if __name__ == '__main__':
     try:
         v = Verify()
-	    #print 'testing image from simulator'
         print ('testing image from real world')
         v.process('/work/git_repo/CarND-Capstone/data/eval_jpg',
                     '/work/git_repo/CarND-Capstone/data/eval_xml')
+        #v.process('/work/git_repo/CarND-Capstone/data/dataset_jpg',
+        #            '/work/git_repo/CarND-Capstone/data/dataset_xml')
     except Exception as e:
         import traceback
         traceback.print_exc()

@@ -1,0 +1,26 @@
+<annotation>
+	<folder>dataset_jpg</folder>
+	<filename>left0473_j_flip.jpg</filename>
+	<path>dataset_jpg_flip/left0473_j_flip.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1368</width>
+		<height>1096</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>red</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>681</xmin>
+			<ymin>391</ymin>
+			<xmax>753</xmax>
+			<ymax>494</ymax>
+		</bndbox>
+	</object>
+</annotation>

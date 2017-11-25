@@ -1,0 +1,26 @@
+<annotation>
+	<folder>dataset_jpg</folder>
+	<filename>left0736_l_flip.jpg</filename>
+	<path>dataset_jpg_flip/left0736_l_flip.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1368</width>
+		<height>1096</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>green</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1256</xmin>
+			<ymin>310</ymin>
+			<xmax>1353</xmax>
+			<ymax>575</ymax>
+		</bndbox>
+	</object>
+</annotation>
