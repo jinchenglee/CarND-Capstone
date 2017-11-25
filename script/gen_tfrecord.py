@@ -7,16 +7,13 @@ from lxml import etree
 import PIL.Image
 import logging
 import hashlib
-
-flags = tf.app.flags
-flags.DEFINE_string('o', '', 'Path to output TFRecord')
-FLAGS = flags.FLAGS
+from random import shuffle
 
 MY_LABEL_DICT =  {
-    "green" : 0,
-    "red" : 1,
-    "yellow" : 2,
-    "off" : 3
+    "green" : 1,
+    "red" : 2,
+    "yellow" : 3,
+    "off" : 4
     }
 
 def dict_to_tf_example(data,
@@ -87,26 +84,46 @@ def dict_to_tf_example(data,
 
 
 def main(_):  
-    writer = tf.python_io.TFRecordWriter(FLAGS.o)
+
     datapath = os.path.join('../data', 'dataset_jpg')
     annotationpath = os.path.join('../data', 'dataset_xml')
     datalist = dataset_util.read_examples_list(os.path.join('../data', 'dataset_list'))
-    for idx, filename in enumerate(datalist):
+    # Randomly shuffle the list
+    shuffle(datalist)
+    # Split into trainlist and testlist
+    split_marker = int(0.75*len(datalist))
+    trainlist = datalist[0:split_marker]
+    testlist = datalist[split_marker:-1]
+
+    # Training record file gen
+    writer = tf.python_io.TFRecordWriter("../data/train.tfrecord")
+    for idx, filename in enumerate(trainlist):
         path = os.path.join(annotationpath, filename + '.xml')
 
         with tf.gfile.GFile(path, 'r') as fid:
             xml_str = fid.read()
         xml = etree.fromstring(xml_str)
         data = dataset_util.recursive_parse_xml_to_dict(xml)['annotation']
-        #print("xml = ", data['filename'])
+        print("Gen Training: xml = ", data['filename'])
         tf_example = dict_to_tf_example(data, '../data', MY_LABEL_DICT,
                                       True, image_subdirectory='')
         writer.write(tf_example.SerializeToString())
-
-
     writer.close()
 
+    # Test/Validation record file gen
+    writer = tf.python_io.TFRecordWriter("../data/eval.tfrecord")
+    for idx, filename in enumerate(testlist):
+        path = os.path.join(annotationpath, filename + '.xml')
 
+        with tf.gfile.GFile(path, 'r') as fid:
+            xml_str = fid.read()
+        xml = etree.fromstring(xml_str)
+        data = dataset_util.recursive_parse_xml_to_dict(xml)['annotation']
+        print("Gen Testing: xml = ", data['filename'])
+        tf_example = dict_to_tf_example(data, '../data', MY_LABEL_DICT,
+                                      True, image_subdirectory='')
+        writer.write(tf_example.SerializeToString())
+    writer.close()
 
 if __name__ == '__main__':
     tf.app.run()
