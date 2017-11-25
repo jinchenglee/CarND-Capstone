@@ -95,6 +95,16 @@ def main(_):
     trainlist = datalist[0:split_marker]
     testlist = datalist[split_marker:-1]
 
+    list_file = open("trainlist", "w")
+    for item in trainlist:
+        list_file.write(str(item)+"\n")
+    list_file.close()
+
+    list_file = open("testlist", "w")
+    for item in testlist:
+        list_file.write(str(item)+"\n")
+    list_file.close()
+
     # Training record file gen
     writer = tf.python_io.TFRecordWriter("../data/train.tfrecord")
     for idx, filename in enumerate(trainlist):
