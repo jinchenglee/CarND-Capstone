@@ -93,7 +93,7 @@ for f in xml_list:
         print 'do the job, ', filename
     
         # Fill in folder/filename/path etc contents
-        root.find('folder').text = "dataset_jpg"
+        root.find('folder').text = "dataset_jpg_flip"
         root.find('filename').text = filename+'.jpg'
         root.find('path').text = "dataset_jpg_flip/"+filename+'.jpg'
     

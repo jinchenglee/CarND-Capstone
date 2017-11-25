@@ -85,25 +85,28 @@ def dict_to_tf_example(data,
 
 def main(_):  
 
-    datapath = os.path.join('../data', 'dataset_jpg')
     annotationpath = os.path.join('../data', 'dataset_xml')
-    datalist = dataset_util.read_examples_list(os.path.join('../data', 'dataset_list'))
-    # Randomly shuffle the list
-    shuffle(datalist)
-    # Split into trainlist and testlist
-    split_marker = int(0.75*len(datalist))
-    trainlist = datalist[0:split_marker]
-    testlist = datalist[split_marker:-1]
 
-    list_file = open("trainlist", "w")
-    for item in trainlist:
-        list_file.write(str(item)+"\n")
-    list_file.close()
+#    datalist = dataset_util.read_examples_list(os.path.join('../data', 'dataset_list'))
+#    # Randomly shuffle the list
+#    shuffle(datalist)
+#    # Split into trainlist and testlist
+#    split_marker = int(0.75*len(datalist))
+#    trainlist = datalist[0:split_marker]
+#    testlist = datalist[split_marker:-1]
+#
+#    list_file = open("trainlist", "w")
+#    for item in trainlist:
+#        list_file.write(str(item)+"\n")
+#    list_file.close()
+#
+#    list_file = open("testlist", "w")
+#    for item in testlist:
+#        list_file.write(str(item)+"\n")
+#    list_file.close()
 
-    list_file = open("testlist", "w")
-    for item in testlist:
-        list_file.write(str(item)+"\n")
-    list_file.close()
+    trainlist = dataset_util.read_examples_list(os.path.join('../data', 'trainlist'))
+    testlist = dataset_util.read_examples_list(os.path.join('../data', 'testlist'))
 
     # Training record file gen
     writer = tf.python_io.TFRecordWriter("../data/train.tfrecord")
