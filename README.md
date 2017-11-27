@@ -235,6 +235,7 @@ roslaunch launch/styx.launch
 
 ### Real world testing
 1. Download [training bag](https://drive.google.com/file/d/0B2_h37bMVw3iYkdJTlRSUlJIamM/view?usp=sharing) that was recorded on the Udacity self-driving car (a bag demonstraing the correct predictions in autonomous mode can be found [here](https://drive.google.com/open?id=0B2_h37bMVw3iT0ZEdlF4N01QbHc))
+Put the well-trained model file (.pb) at <tot>/ros/src/tl_detector.
 2. Unzip the file
 ```bash
 unzip traffic_light_bag_files.zip
@@ -248,4 +249,23 @@ rosbag play -l traffic_light_bag_files/loop_with_traffic_light.bag
 cd CarND-Capstone/ros
 roslaunch launch/site.launch
 ```
-5. Confirm that traffic light detection works on real life images
+5. Confirm that traffic light detection works on real life images by launching rqt_image_viewer. The console should print out sth. like below:
+```
+-------------- None ----------------
+-------------- None ----------------
+-------------- None ----------------
+-------------- None ----------------
+-------------- None ----------------
+-------------- Red ----------------
+-------------- Red ----------------
+-------------- Red ----------------
+-------------- Green ----------------
+-------------- Green ----------------
+-------------- Green ----------------
+-------------- Green ----------------
+-------------- Green ----------------
+```
+
+### RFCN inference evaluation
+1. cd <tot>/script 
+2. python verfiywin.py

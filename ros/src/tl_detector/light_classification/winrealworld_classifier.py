@@ -5,6 +5,7 @@ import tensorflow as tf
 from time import gmtime, strftime, time
 from timeit import default_timer as timer
 from styx_msgs.msg import TrafficLight
+import rospy
 
 DEBUG_MODE = False
 PATH_TO_CKPT = './frozen_inference_graph.pb'
@@ -28,15 +29,25 @@ class RealWorldClassifier(object):
         int: ID of traffic light color (specified in styx_msgs/TrafficLight)
 
         """
+        #pwd = os.getcwd()
+        #rospy.logerr(str(pwd))
         # predict traffic light color
         class_index, probability = self.predict(image)
         if class_index == 1: # Green
+            rospy.logdebug("-------------- Green ----------------")
+            print "-------------- Green ----------------"
             return TrafficLight.GREEN
         elif class_index == 2: # Red
+            rospy.logdebug("-------------- Red ----------------")
+            print "-------------- Red ----------------"
             return TrafficLight.RED
         elif class_index == 3: # Yellow 
+            rospy.logdebug("-------------- Yellow ----------------")
+            print "-------------- Yellow ----------------"
             return TrafficLight.YELLOW
         else:
+            rospy.logdebug("-------------- None ----------------")
+            print "-------------- None ----------------"
             return TrafficLight.UNKNOWN
 
 
