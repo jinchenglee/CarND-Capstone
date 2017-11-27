@@ -6,11 +6,16 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
 
 The final project diagram is illustrated below. It consists of four major components: perception, planning, control/execution and environment(Udacity Car Simulator). The whole system operates on ROS and there are several ROS nodes in each of the first three components. 
 
-In my team (Zoom_Ahead), my main contributions are:
-* A neural-network based traffic light state classifier (in Traffic Light Detection Node).
-* A visualization tool subscribing to /current_pose message and tracks vehicle actual waypoints against /base_waypoints live.
-
 ![System diagram](./imgs/final-project-ros-graph-v2.png)
+
+In my team, [Zoom_Ahead](https://github.com/girishpai/CarND_Zoom_Ahead), my main contributions are:
+* (Part of ) /tl_detector node: A neural-network based traffic light state classifier (in Traffic Light Detection Node). 
+* /plot_mon node : A visualization tool subscribing to /current_pose message and tracks vehicle actual waypoints against /base_waypoints live.
+
+All other nodes code are copied from team github repo.
+
+![Ros graph](./imgs/rosgraph.png)
+
 
 ### Waypoint following visualization 
 
