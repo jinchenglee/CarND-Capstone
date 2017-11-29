@@ -51,8 +51,8 @@ class TLDetector(object):
         self.bridge = CvBridge()
 
         # Choose between simulator version classifier and real-world one
-        #self.light_classifier = TLClassifier() # Simple, traditional CV based
-        self.light_classifier = RealWorldClassifier() # Transfer-learning, NN-based
+        self.light_classifier = TLClassifier() # Simple, traditional CV based
+        #self.light_classifier = RealWorldClassifier() # Transfer-learning, NN-based
 
         self.listener = tf.TransformListener()
 

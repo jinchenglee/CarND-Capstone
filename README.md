@@ -2,8 +2,19 @@ This is the project repo for the final project of the Udacity Self-Driving Car N
 
 NOTE to reviewer:
 1. Currently repository HEAD still uses simple traditional CV traffic light detector. 
-As the Neural Network trained frozen model .pb file is ~200MB, too large to be uploaded to github.com. 
-2. Our team lead is still working on team repo. 
+
+As the Neural Network trained frozen model .pb file is ~200MB, too large to be uploaded to github.com. The file can be downloaded [here](https://drive.google.com/file/d/17mtiBbiMi5iVYtQQwY0GPGEieXRnFiUi/view?usp=sharing), and please put the file at <tot>/ros/src/tl_detector/frozen_inference_graph.pb so that it can be loaded correctly.
+
+To enable real-life classifier, modify these lines in ros/src/tl_detector/tl_detector.py:
+```
+ 53         # Choose between simulator version classifier and real-world one
+ 54         #self.light_classifier = TLClassifier() # Simple, traditional CV based
+ 55         self.light_classifier = RealWorldClassifier() # Transfer-learning, NN-based
+```
+
+A recorded rosbag playback with this NN Traffic Light classifier working can be seen here:
+[![NN TL classifier with ROS bagfile](https://img.youtube.com/vi/E0k9DKLc9aU/0.jpg)](https://youtu.be/E0k9DKLc9aU "! Click to watch on YouTube.")
+
 
 
 ## System introduction
@@ -42,7 +53,7 @@ When my team implemented the waypoint follower, we found the car didn't stay in 
 
 I used my visualization tool to debug this. I draw more dense points from /base_waypoints around that area where our car goes off-lane. As it can be seen from below video, our car is actually doing a pretty good job following what it is told to follow. Udacity's simulator might have some problem: the provided base waypoints don't agree with lane-marks in simulator.
 
-[![Waypoint follower working proof](https://img.youtube.com/vi/qFlW43IbLEE/0.jpg)](https://www.youtube.com/watch?v=qFlW43IbLEE "Waypoint follower is working! Click to watch on YouTube.)
+[![Waypoint follower working proof](https://img.youtube.com/vi/qFlW43IbLEE/0.jpg)](https://www.youtube.com/watch?v=qFlW43IbLEE "Waypoint follower is working! Click to watch on YouTube.")
 
 
 
